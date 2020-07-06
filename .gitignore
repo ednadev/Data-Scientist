@@ -1,2 +1,7 @@
 ## 폴더 무시
 anaconda3/
+py_workspace/.ipynb_checkpoints/
+py_workspace/01_python/.ipynb_checkpoints/
+
+## 확장자 무시
+*.exe
