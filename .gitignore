@@ -5,3 +5,6 @@ py_workspace/01_python/.ipynb_checkpoints/
 
 ## 확장자 무시
 *.exe
+
+## 파일 무시
+*_ws.ipynb
