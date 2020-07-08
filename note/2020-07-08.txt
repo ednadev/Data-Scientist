@@ -1,0 +1,14 @@
+함수 (PDF 2-78)
+키워드 def
+함수 이름
+인자값
+콜론(:)
+
+2-80 : 함수 형태
+
+csv, excel 등을 dataframe 형식으로 받아오므로 pandas를 많이 사용한다
+
+DataFrame
+row, 행에 해당하는 부분이 앞으로는 'index'.. 0부터 시작함. 행을 뜻함
+column, 열에 해당하는 부분이 앞으로는 'feature'.. 특징, 지금 당장은 컬럼
+키워드 매개변수를 써서 index와 feature에 해당하는 값을 직접 주입

@@ -2,9 +2,15 @@
 anaconda3/
 py_workspace/.ipynb_checkpoints/
 py_workspace/01_python/.ipynb_checkpoints/
+py_workspace/01_python/__pycache__
 
 ## 확장자 무시
 *.exe
 
 ## 파일 무시
 *_ws.ipynb
+py_workspace/01_python/MyGame.ipynb
+py_workspace/01_python/MyGame.py
+py_workspace/01_python/MyGameTeacher.ipynb
+py_workspace/01_python/MyGameTeacher.py
+py_workspace/01_python/TestModule1.ipynb
