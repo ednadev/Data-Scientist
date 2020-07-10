@@ -2,9 +2,11 @@
 anaconda3/
 py_workspace/.ipynb_checkpoints/
 py_workspace/01_python/.ipynb_checkpoints/
-py_workspace/01_python/__pycache__
+py_workspace/01_python/__pycache__/
 py_workspace/02_numpy/.ipynb_checkpoints/
-util/Python_Workshop
+py_workspace/03_pandas/.ipynb_checkpoints/
+util/Python_Workshop/
+util/데이타분석/
 
 ## 확장자 무시
 *.exe
