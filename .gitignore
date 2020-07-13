@@ -12,7 +12,8 @@ util/데이타분석/
 *.exe
 
 ## 파일 무시
-*_ws.ipynb
+py_workspace/01_python/*_ws.ipynb
+py_workspace/02_numpy/*_ws.ipynb
 py_workspace/01_python/MyGame.ipynb
 py_workspace/01_python/MyGame.py
 py_workspace/01_python/MyGameTeacher.ipynb
