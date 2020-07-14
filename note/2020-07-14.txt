@@ -1,0 +1,26 @@
+matplot, 씨본
+
+----
+
+pivot table
+컬럼을 언제 주는지를 잘 봐야한다.
+컬럼을 주지 않으면 값으로 주는 것에 따라..
+컬럼을 안 주는 경우가 많다
+
+데이터 사이언티스트에게 도메인 전문가 지식을 배우게끔 하는게 가성비가 좋다
+도메인 전문가 (의사 등등 각 지식을 가진 사람들)
+
+------------
+
+AI에서는 matplot과 seaborn이 사용된다.
+
+내일 씨본! 오늘은 matplot
+
+-- 프로젝트시 검색하는 방법
+matplot cmap
+오리지널 튜토리얼을 먼저 보기
+https://matplotlib.org/3.1.0/tutorials/colors/colormaps.html
+
+Tutorials -- 난이도에 따라 구분
+
+examples 샘플 예제를 보는게 제일 좋음
