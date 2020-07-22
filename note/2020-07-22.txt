@@ -1,0 +1,43 @@
+AI
+- Machine Learning
+1. 개념적인 : DecisionTree -> RandomForest => Classification
+2. 수학적인 : Linear Regression, Rogistic Regression
+3. 추천 협업 (Collaborate Filtering) - 코사인 유사도 추천
+- Deep Learning : 이미지 processing
+1. 딥러닝으로 연결되는 건.. Linear Regression
+Linear Regression이 계속 쌓이는 게 Deep!
+2. Neural Network : ANN, DNN, RNN
+Neural Network이 내부적으로 어떻게 동작하는지를 완벽하게 이해
+컴퓨터 비전하고 연결
+인간의 시각화를 기계 입장에서 바라보는 것을 컴퓨터 비전
+Fully Connected Layer
+CNN
+
+1. 머신러닝 개요
+
+2. AI/머신러닝/딥러닝
+AI
+1) Narrow AI -- 한가지 영역에서만 능력을 가짐. 기업입장
+2) General AI -- 일반적인, 전영역에 걸친..
+
+
+3. 머신러닝 쓰이는 분야
+4. 학습분류
+5. 학습 데이타셋
+
+
+https://graphviz.gitlab.io/_pages/Download/Download_windows.html
+
+import os
+os.environ['PATH'] = os.environ['PATH'] + os.pathsep + 'C:\Program Files (x86)\Graphviz2.38\bin'
+
+-- iris dataset
+https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html
+https://gist.github.com/curran/a08a1080b88344b0c8a7
+
+-- iris dataset images
+https://www.google.com/search?q=iris+dataset+images&sxsrf=ALeKk03goAejfezemyfP-8BHXQmFO8NCjQ:1595395081778&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiKsYDpjeDqAhUFKaYKHZzbAOUQ_AUoAXoECAwQAw&biw=1536&bih=754
+
+
+1. iris = sklearn.load_iris()
+2. iris
