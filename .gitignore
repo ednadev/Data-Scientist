@@ -9,6 +9,8 @@ py_workspace/04_matplot/.ipynb_checkpoints/
 py_workspace/05_MachineLearning/.ipynb_checkpoints/
 util/Python_Workshop/
 util/데이타분석/
+util/알고리즘/
+util/AI/제공파일/
 
 ## 확장자 무시
 *.exe
@@ -21,3 +23,4 @@ py_workspace/01_python/MyGame.py
 py_workspace/01_python/MyGameTeacher.ipynb
 py_workspace/01_python/MyGameTeacher.py
 py_workspace/01_python/TestModule1.ipynb
+util/AI/제공파일/06_ML_LinearMSE.ipynb
