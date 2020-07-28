@@ -1,0 +1,72 @@
+구글 "cifar10 accuracy" 검색
+https://paperswithcode.com/sota/image-classification-on-cifar-10
+구글 "mnist accuracy" 검색
+https://paperswithcode.com/sota/image-classification-on-mnist
+구글 "cifar100 accuracy" 검색
+https://paperswithcode.com/sota/image-classification-on-cifar-100
+
+MNIST - 28X28X1 --99.8%
+           (0~9손글씨 숫자, 검정색 바탕에 흰색글씨)
+           10개의 카테고리
+           10% | 딥러닝...정확도 
+MNIST-Fashion
+CIFAR10 - 32X32X3 --99.3%
+              10개의 카테고리
+	  정보량이 더 많다...복잡한 입력
+CIFAR100 - 93%
+               100개의 카테고리
+ImageNet - 88%
+                1000개의 카테고리
+-------------------------------------------------------------
+50개를 넘지 않도록 한다
+실제로 클래스 카테고리가 10개라 하더라도 정확도 99% 안나온다.
+
+보통 학술적으로 연구할때 92~95%(학사수준) 이 정도 나오면 잘 나옴
+여기서 99% 대로 (박사수준) 올리는 것은 10배 더 어렵다.
+비용적인 측면.. 50만원
+비용적인 측면.. 5천만원
+가성비를 따져라...
+
+50% ---- 1%
+90% ---- 1% ...차원이 다른 문제
+
+
+
+===================================================================
+
+리니어...3개
+W1*x + b1 + W2*x + b2 + W3*x + b3
+w 값이 작으면 굴곡이 완만해진다..
+w 값이 크면 클수록 pdf에서 보이는 파란색 그래프가 만들어진다.
+데이타들의 분포가 산만하다...안정적이지 않다...분산이 크다..오버핏팅
+
+w(weight) 값이 작아질수록 훨씬 안정적인 그래프를 그리는데..초록색..
+Loss Function에서 란다R(w) 이부분은 weight의 크기를 줄여주는 역할
+그렇기 때문에 Regularization 을 써야 weight의 값을 안정적으로 만들어주고
+오버핏팅을 막을 수 있다 ---> Full Loss Function
+
+
+===================================================================
+
+Optimization
+
+Loss Function
+
+Gradiend Descent
+가장 가파르게 Loss(고도)를 감소시키며 하강하는 방법
+가장 가파르게 Loss(고도)를 감소시키는 Weight의 방향을 찾아낸다
+가장 가파르게 Loss(고도)를 감소시키는 Weight의 방향을 
+Trial Error 없이 Optimization 방법중의 하나이다.
+
+BackPropagation
+
+===================================================================
+
+https://enjoysomething.tistory.com/40
+
+===================================================================
+
+NN
+ |
+ -----> ANN / DNN / CNN / RNN
+ -----> Fully Connected Network
