@@ -1,0 +1,46 @@
+Optimization
+- 하강하는 방법
+
+Loss Function
+- 현재 고도를 측정하는 것
+
+S Gradient Descent
+- Optimization 중의 하나
+  Backpropagation 방법을 이용해서 하산하는 Optimization
+  정확한 방향을 스텝마다 계산하기 때문에 Slow, 하지만 Global Minimum까지 정확하게 찾아간다.
+  Learning_rate는 0.1을 기본적으로 사용
+
+Backpropagation
+- 1) 가장 가파르게 내려갈 수 있는 방향을 계산하는 것
+  이때 미분(실질적으로는 편미분)이 사용된다.
+
+- 2) (딥러닝스럽게)
+  Weight값이 Loss에 얼마나 영향을 주었는지를 수치화한 다음에 
+  Loss를 가장 많이 줄이는 방향으로 Weight값을 업데이트
+  Loss에 영향을 많이 주었으면 (책임을 많이진다) 수정값이 크고
+  Loss에 영향을 작게 주었으면 (책임을 적게진다) 수정값이 작다
+
+
+# move axis pytorch 검색
+
+===================================================================
+
+with torch.no_grad():
+    some code
+    --> code 부분에서는 gradient 사용하지 않겠다.
+         backpropagation 하지 않겠다.
+
+with torch.grad_enabled(False):
+    some code
+    --> code 부분에서는 gradient 사용하지 않겠다.
+         backpropagation 하지 않겠다.
+-------------------------------------------------------------------------------
+기본적으로 backpropagation 중요한 부분...필수!! 학습에 있어서 필수
+메모리...이 부분이 동작할수 있도록 메모리를 훨씬 더 많이 할당...
+이걸 해주면... 메모리를 따로 빼두는 부분을 생략
+
+FCN---1차원으로 주욱 늘린다..
+
+===================================================================
+
+value, index = max(outputs.data, 1) --> 리턴값이 2개
