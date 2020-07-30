@@ -1,0 +1,50 @@
+Output Size : (N - F) / stride + 1
+
+stride 는 1인 경우
+- 필터 사이즈 3x3 --> 패딩 사이즈 1
+- 필터 사이즈 5x5 --> 패딩 사이즈 2
+- 필터 사이즈 7x7 --> 패딩 사이즈 3
+
+(N+? - F) / stride + 1
+(7+2 - 3) / 1 + 1 = 7
+(7+4 - 5) / 1 + 1 = 7
+(7+6 - 7) / 1 + 1 = 7
+
+
+stride 는 2인 경우에도 위의 공식이 동일하게 적용될까요??
+-----------------------------------------------------------------------
+
+필터 사이즈 1x1에서는 패딩 사이즈를 얼마로?
+
+===================================================================
+
+PoolingLayer는 각 채널별로 동작한다
+
+===================================================================
+
+pytorch nn.conv2d 구글 검색
+https://pytorch.org/docs/stable/search.html?q=nn.conv2d&check_keywords=yes&area=default
+https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html?highlight=nn%20conv2d#torch.nn.Conv2d
+
+kernel = Filter
+5가지 정도로 만들어줌..
+
+=======================================================================
+
+pdb 사용법
+l
+n -> next
+out.size()
+labels 등 변수도 체크 가능
+n
+
+* 같은값 나옴
+out.reshape(100, -1).shape
+out.reshape(100, 32*7*7).shape
+
+그만두는건 q
+
+=======================================================================
+
+케라스 설치
+https://devpad.tistory.com/39
