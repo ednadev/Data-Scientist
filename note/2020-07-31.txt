@@ -1,0 +1,20 @@
+Deep Learning 은 크게 3 part로 구성
+
+1. PreProcessing(70%)            2. DeepLearning(25%)            3. PostProcessing(5%)
+
+딥러닝 작업의 순서
+1) 깨끗한 데이타를 위한 노가다
+2) 값을 스케일링
+3) 데이타 Augmentation
+   transforms = [ transforms.RandomRotation(), transforms.RandomBlightness() ]
+4) 데이타 균일하게 비율을 맞춤
+   ex) 고양이(100만장), 강아지(2만장)...구별을 하는 모델
+5) 데이타 섞는다....
+.....
+6) 도메인 전문지식이 필요한 데이타 ----> 의료스타트업
+   의사직접 고용
+
+
+90%
+
+95% -----> 97%, 98%까지 끌어올리고 싶다.. (PDF-18에 해당하는 모든걸 다 써볼 필요가 있다 : Leaky ReLU, Maxout, ELU 등)
