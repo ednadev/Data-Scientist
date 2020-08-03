@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Bean :: API Bean	| User Definition Bean -->
+	<!-- 주입 방법 :: 생성자 주입	| setter 주입 -->
+	<!-- 1. greet1 이라는 이름의 User Definition Bean-->
+	<bean id="greet1" class="spring.service.greet.Greet" />
+	
+	<!-- 2. greet2 이라는 이름의 User Definition Bean, 생성자 값 주입..Hello Spring!! -->
+	<bean id="greet2" class="spring.service.greet.Greet">
+		<constructor-arg value="Hello Spring!!" />
+	</bean>
+	
+	<!-- 3. greet3 이라는 이름의 User Definition Bean, setter로 값 주입..Hi Spring DI!! -->
+	<bean id="greet3" class="spring.service.greet.Greet">
+		<!-- greet3.setMessage("Hi Spring DI!!") -->
+		<property name="message" value="Hi Spring DI!!"></property>
+	</bean>
+	
+	<!-- API Bean String str = new String("스프링 빈 설정문서 만들기")-->
+	<bean id="str" class="java.lang.String">
+		<constructor-arg value="스프링 빈 설정문서 만들기" />
+	</bean>
+	
+	<bean id="greet4" class="spring.service.greet.Greet">
+		<property name="message" ref="str" />
+	</bean>
+</beans>
