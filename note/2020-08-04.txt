@@ -1,0 +1,69 @@
+versistant layer...? DAO Component가 있는 레이어
+스프링기반은 서비스 레이어를 거치도록 만들어져 있다.
+가공하는 레이어가 '서비스 레이어' --> Controller 소비자한테 넘겨준다
+
+자바와 파이썬의 장점을 다 가지고 있는 스칼라.. 시도해볼만한 언어
+인공지능을 스칼라로 연결할 생각
+
+MyBatis를 프레임워크보다는 SQL Mapper라고도 함
+첫번째는 MyBatis만 할 생각
+두번째는 MyBatis랑 DI를 연결해야하는데 --> 
+
+DB랑 DAO를 MyBatis로 연결
+DAO --> DI..
+
+MyBatis를 DI와 연결 : Spring = Integration with Spring 필요
+
+모든 컨테이너가 인식하는 기술이 xml이므로 개발자가 작성하는 주문서가 xml이라는 것
+
+MyBatis
+퍼시스턴스 프레임워크!
+DAO 가기 전에 .. JDBC 썼던 걸 MyBatis로 갈아치운 것
+MyBatis는 JDBC 코드와 수동으로 셋팅하는 파라미터와 결과 매핑을 제거한다.
+
+JDBC 5단계
+1. 드라이버 로딩
+2. 디비연결 -> Connection 리턴
+3. PreparedStatement 생성 -> 쿼리
+4. 쿼리문 실행 : executeQuery, executeUpdate
+5. 자원 닫고 Connect
+
+MyBatis 라이브러리를 사용하려면 1. SqlSessionFactoryBuilder
+ --> 2. SqlSessionFactory를 얻어낸다
+ --> 3. SqlSession을 얻는다
+
+MyBatis에서는 값을 Setter로 받아온다.. 즉 VO에서는 생성자를 아예 생성하지 않으면
+기본 생성자는 자동으로 생성된다.
+
+(1) DB 구축
+(2) VO 생성
+(3) 설정문서 : SqlMapConfig.xml -- 왜 얘가 핵심문서인지
+
+
+UNPOOLED : DriverManager 방식
+POOLED = JNDI : DataSource 방식 - main에서 못 돌린다
+
+
+dbconn.properties -> 디비서버정보(driver, url, username, password)
+mysawon_mapping.xml -> sql 쿼리문
+MySawon --> (table 정보) VO 정보
+
+DAO -- MyBatis -- DB
+Persitence Framework
+
+# getter
+property - setter
+
+스프링 프레임워크에서 가장 중요한 것이 누가 누구를 가지느냐
+SqlSessionBuilder는 SqlMapConfig.xml을 가진다 (DI)
+SqlSessionBuilder -- (DI) --> SqlSessionFactory
+SqlSessionFactory -- (DI) --> SqlSession
+
+SqlSession -- insert(), delete(), update() --> mySawon (MySQL 테이블)
+               <-- select(), selectList() ---------
+
+파라미터 타입의 vo가 들어오면
+# getter를 사용한다.
+
+파라미터 타입에 vo가 아니면..?
+# value를 사용한다.
