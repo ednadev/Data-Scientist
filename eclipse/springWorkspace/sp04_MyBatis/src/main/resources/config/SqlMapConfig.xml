@@ -3,7 +3,16 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- 1. properties 파일 연결 -->
-	<properties resource="config/dbconn.properties"/>
+	<!-- <properties resource="config/dbconn.properties"/> -->
+	
+	<!-- Oracle인 경우 null값을 허용하지 않기에 반드시 옵션을 추가해야 실행될 수 있다. 
+		 settings 태그의 위치와 NULL 값을 대문자로 입력해야 한다.
+		 MySQL인 경우에는 상관없다
+	-->
+	<settings>
+		<!-- <setting name="jdbcTypeForNull" value="NULL"/> -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
 	
 	<!-- 2. vo 연결 및 알리야스 지정 -->
 	<typeAliases>
@@ -11,7 +20,7 @@
 	</typeAliases>
 	
 	<!-- 3. 디비서버 정보 -->
-	<environments default="develop">
+	<!-- <environments default="develop">
 		<environment id="develop">
 			<transactionManager type="JDBC"/>
 			<dataSource type="UNPOOLED">
@@ -21,12 +30,16 @@
 				<property name="password" value="${jdbc.mysql.password}"/>
 			</dataSource>
 		</environment>
-	</environments>
+	</environments> -->
 	
 	<mappers>
 		<mapper resource="sql/mybatis-userservice-mapping.xml"/>
 		<mapper resource="sql/mybatis-userservice-mapping01.xml"/>
 		<mapper resource="sql/mybatis-userservice-mapping02.xml"/>
 		<mapper resource="sql/mybatis-userservice-mapping03.xml"/>
+		<mapper resource="sql/mybatis-userservice-mapping05.xml"/>
+		<mapper resource="sql/mybatis-userservice-mapping07.xml"/>
+		<mapper resource="sql/mybatis-userservice-mapping08.xml"/>
+		<mapper resource="sql/mybatis-userservice-mapping10.xml"/>
 	</mappers>
 </configuration>

@@ -1,0 +1,145 @@
+OOP - 재사용성을 높이기 위해서
+OOP의 연장선이라는 것을 알아야 함
+
+마이바티스 최종정리
+mybatis-userservice-mapping10.xml
+MyBatisTestApp101.java --> 마이바티스 단위테스트! 무조건 해야 함
+
+
+스프링 : OOP, Servlet, Layer 지식을 알아야 함
+
+------------ 최종 정리 ------------------
+
+<------- <<MyBatisFramework>>
+[MyBatis Framework 단위테스트(Unit Test) : MyBatisTestApp101]
+SqlSession
+<-- DI -- SqlSessionFactory
+<-- DI -- 
+SqlMapConfig.xml
+ <-- wiring -- user
+ <-- wiring -- userservice01.xml (이부분이 Perfect)
+ <-- wiring -- dbconn.properties
+
+<<Persistence Layer>><------- 
+[Persistence Layer 단위테스트 : MyBatisTestApp102]
+userDAO <--- MyBatisUserDaoImpl
+
+{ MyBatisUserDAOImpl <-- DI -- SqlSession }
+Dependency : MyBatisUserDAOImpl
+Injection : SqlSession
+
+Hasing 2단계
+1. 필드에 선언
+2. 주입은 생성자, setter
+
+원래 돌아가던 5단계는 마이바티스에서 돌아감
+
+
+요청 흐름 : MyBatisUserDaoImpl --> SqlSession --> MySQL (DB)
+
+
+<<Service Layer>> <--------------------
+데이타 가공, 조작
+
+UserService
+<-- MyBatisUserServiceImpl
+
+{ MyBatisUserServiceImpl <-- DI -- UserDAO }
+
+인터페이스로 소통을 하지만 (자바 코드에서는 실체 클래스가 나오지 않음)
+설정문서는 실체 클래스로 설정 (인터페이스가 나오지 않음)
+
+대표적인 데이타 가공, 조작 예 : 페이징
+
+MyBatisTestApp 11 : 서비스 테스트
+
+-----------------------------------------------------------------------------------------------------------------------------------
+======= [ Core(DI) Container : ServerSide ] =======
+<<Presentation Layer : Spring MVC Framework (내일)>>
+DispatcherServlet 
+	<--> HandlerMapping
+	<--> Controller : Register, Login, Find
+ModelandView
+
+<<Service Layer : 11>>
+userService
+<-- (bean) userServiceImpl
+
+<<Persistence Layer : 102>>
+userDAO
+<-- (bean) userDAOImpl
+
+<<MyBatis Framework : 101>>
+(bean) SqlSession <-- DI --
+(bean) SqlSessionFactory
+SqlMapConfig
+
+[[ DataSource (Sun) <-- BasicDataSource (Apache) ]]
+<<(Resource) DB Tier>>
+DB
+
+
+Spring DI
+Tomcat
+JVM
+O.S
+H.W
+
+
+userService.xml -- 읽어들임 --> Core(DI) Container
+
+
+---------------
+ 작업 시작
+
+C:\edna\util\Spring\제공\spring-framework-3.0.2.RELEASE-dependencies\org.apache.commons\com.springsource.org.apache.commons.dbcp\1.2.2.osgi
+
+com.springsource.org.apache.commons.dbcp-1.2.2.osgi.jar <-- 라이브러리 추가
+
+C:\edna\util\Spring\제공\spring-framework-3.0.2.RELEASE-dependencies\org.apache.commons\com.springsource.org.apache.commons.pool\1.5.3
+
+com.springsource.org.apache.commons.pool-1.5.3.jar <-- 라이브러리 추가
+
+
+디비서버 정보 <-- SqlMapConfig.xml : 단위테스트용 (DriverManager)
+굳이 주석으로 막지 않아도 됨.. 
+
+SqlMapConfig.xml : alias랑 mapper만 존재해도 됨.. 나머지는 단위테스트에나 필요하는 등 필수가 아님
+
+
+---------------------------
+
+Maven (내일 들어감) --> Spring Boot
+
+컴포넌트는 어노테이션으로 마킹할 수 있다.. userService + userServiceImpl.. 등
+@Component
+ <-- controller, service, dao..
+
+@Repository : persistence Layer (userDAOImpl)
+@Service : service Layer (userServiceImpl)
+@Controller : presentation Layer (controller)
+
+--> Layer별로 Component Annotation
+
+재사용성을 떨어뜨리는 원인이
+필드.. 그리고 setter와 getter
+property만 계속 늘어남...
+이 작업이 재사용성을 떨어뜨리는 작업
+
+
+@Repository
+public class MyBatisUserDAOImpl13 implements UserDAO{
+	@Autowired
+	private SqlSession sqlSession;
+
+setter가 필요없음
+
+필드가 있는지 없는지.. 확인하고 autowired 시키고 설정문서에서 지우기
+
+
+어노테이션이 아무리 강력해도 xml이 같이 간다..
+xml을 없앨 수는 있지만 안 없애는 게 좋다.
+
+개발을 할 때는 annotation으로 하는게 좋지만
+유지보수.. 관리를 할 때는 xml이 좋다
+

@@ -75,3 +75,7 @@ util/Spring/제공/MyBatis_Template/*/*/*.properties
 util/Spring/제공/MyBatis_Template/0/Oracle
 util/Spring/제공/MyBatis_Template/*/*.java
 util/Spring/제공/MyBatis_Template/*/*.xml
+
+eclipse/springWorkspace/sp04_MyBatis/.springBeans
+util/Spring/제공/mybatis-3.2.8.jar
+util/Spring/제공/mybatis-spring-1.2.2.jar
