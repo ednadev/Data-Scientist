@@ -1,0 +1,202 @@
+Spring : 종합선물세트
+
+Layer 아니기 때문에 컴포넌트 기반으로 만드는게 아니다 --> MyBatis 부분
+나머지는 Component 기반으로 만듬 --> 인터페이스 기반으로 만들어진다
+
+클래스 <- 클래스 : 재사용성이 낮다 (커플링이 tight) 상속은 한몸이다.. 
+인터페이스 <- 클래스 : 컴포넌트 - 재사용성을 높인다 (인터페이스를 타입으로 두어야 한다)
+
+1. presentation Layer
+2. 설정문서들의 wiring
+3. 전부 다 붙여서 처음부터 끝까지 작업
+
+파이널 프로젝트 : Spring + Vue + RestAPI
+
+WorkShop : 바로 작업
+
+Restful로 넘어가면서 최종적으로 Vue로 넘어감
+오전에는 수업, 오후에는 프로젝트
+
+===========================================================================
+
+Spring Legacy Project
+
+sp05_SpringMVC_Sample : presentation Layer만 살펴볼 예정
+
+Spring MVC Project 선택하고 Next
+패키지 보통 5개 이상 사용한다 (적어도 3개 이상)
+
+처음만 다운로드 받아오고, 다음부터는 로컬에서 다운받는다
+만약 에러가 나면 로컬의 저장소를 지우고 다시 다운받게 한다.
+
+src 다각화가 그대로 보여짐
+
+
+pom.xml
+<org.springframework-version>4.1.1.RELEASE</org.springframework-version>
+
+
+dependency 하나가 라이브러리 하나
+
+
+C:\Users\Playdata\.m2\repository\org\springframework <-- maven 라이브러리 확인가능
+MyBatis만 Dependency 추가
+
+
+로컬 저장소를 지우라는 것이 .m2를 제거하라는 것!
+
+WEB-INF 디렉토리가 가지고 있는 중요한 의미 : 탐캣에서의 WEB-INF와 같은데
+정적인 문서와 동적인 문서를 나누는 기준이 WEB-INF이다.
+주소창에서 치고 접근 못한다. controller가 요청할때만 페이지 띄워지도록 하는 역할
+
+
+.jsp --> DispatcherServlet (servlet) --> HandlerMapping (class)
+                                             --> Controller (class)
+                                             --> MainController (class)
+bean confugation file.. (주문서)
+----------------------------------------------------------------------------DI Container
+D.D (주문서)
+---------------------------------------------------------------------------- WAS : Servlet
+WAS는 web.xml 읽고 Servlet 생성까지
+WAS는 Servlet만 생성
+
+이제까지 우리가 만들었다면, 이제 스프링이 만들어준다.
+
+Java Bean은 DI Container가 생성하고
+Servlet은 WAS가 생성한다.
+
+개발자는 주문서만 작성한다.
+
+bcf <--- D.D가 wiring.. 
+결국 bcf가 WAS에 읽혀진다.
+
+
+1. D.D : web.xml
+2. bcf
+
+dispatcher-servlet.xml과 web.xml(DD 파일)
+wiring이 잘 되지 않으면 FileNotFound Exception이 뜬다
+
+<servlet>
+	<servlet-name>dispatcher</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<init-pram>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/config/mvcbean.xml</param-value>
+	</init-pram>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+
+bean 설정문서를 여기에 만드는 걸 wiring
+
+annotation을 사용하면 Controller는 Pojo로 만들어버린다.
+Old한 자바클래스로 만든다는 뜻
+제약조건이 없다는 얘기는 자유롭다는 얘기
+상속이고 뭐고 다 벗어던지는게 POJO
+확장성이 어마어마해지는다는 뜻이기도 하다
+
+
+
+전체 작업 순서
+1. Table 셋팅
+2. VO 작성
+3. SqlMapConfig.xml 작성
+     - jdbc.properties
+     - myProduct.xml
+SqlSessionFactory(Bean) --> SqlSession(Template)
+4. 단위테스트
+5. 
+
+
+insert문에서 pk가 auto_increment일때 발생하는 문제
+--> 동기화 처리가 되지 않을 때 ,, pk일 때 문제가 생기는데 ,, select문을 하나 더 써서 가져온다
+currentval 문법 사용
+VO와 DB를 동기화 시켜야 한다
+
+useGeneratedKeys="true" keyProperty="id"
+
+이걸 사용하면 select문을 돌리지 않고
+VO에서 id값을 가져올 수 있다.
+
+1. name, maker, price를 DB에 집어넣으면 id를 생성한다.
+2. VO에 id를 넣어준다.
+
+자동생성되는 값이 pk 컬럼일때 insert 일때 주의!
+VO에서 동기화 처리를 해줘야 한다.
+
+WHERE name LIKE '% ${value} %' --> 여기서 $ 사용..?
+#은 getter이므로 $를 사용
+
+
+구글 'maven repository' 검색
+https://mvnrepository.com/
+
+https://mvnrepository.com/artifact/org.mybatis/mybatis/3.4.6
+https://mvnrepository.com/artifact/org.mybatis/mybatis-spring/1.3.2
+https://mvnrepository.com/artifact/org.springframework/spring-jdbc/5.1.3.RELEASE
+
+
+groupId + artifactId : 패키지
+name : 
+
+		<!-- commons-dbcp -->
+		<dependency>
+	   	 <groupId>commons-dbcp</groupId>
+	    	<artifactId>commons-dbcp</artifactId>
+	    	<version>1.4</version>
+		</dependency>
+
+		<!-- commons-pool2 -->
+		<dependency>
+	    	<groupId>org.apache.commons</groupId>
+	    	<artifactId>commons-pool2</artifactId>
+	    	<version>2.6.0</version>
+		</dependency>
+
+		<!-- mysql-connector-java -->
+		<dependency>
+	    	<groupId>mysql</groupId>
+	    	<artifactId>mysql-connector-java</artifactId>
+	    	<version>8.0.15</version>
+		</dependency>
+
+강사님 제공
+
+https://mvnrepository.com/artifact/org.springframework/spring-tx/5.1.3.RELEASE
+이건 내가 추가 : spring-tx
+
+전체 작업 순서
+1. Table 셋팅
+2. VO 작성
+3. SqlMapConfig.xml 작성
+     - jdbc.properties
+     - myProduct.xml
+SqlSessionFactory(Bean) --> SqlSession(Template)
+4. 단위테스트
+5. DAO, Service 작업 끝나면 "jsp,, 와꾸 만들기"
+6. 컴포넌트 --> 
+7. 마지막으로 조립 : 
+  1) web.xml (WAS가 돌면서..) 읽음 -- DispatcherServlet
+  2) bean 설정문서 : BeanConfigurationFile -- 빈 생성..  (bean 설정문서는 DI Container에서 돌아감)
+
+Servlet이 만들어지고 Bean이 만들어짐
+  Bean : DataSource, SqlSession, SqlSessionFactory, MyProductServiceImpl, MyProductDAOImpl, MyProductController, .. 총 7개의 Bean이 만들어짐
+
+vue.js --> javascript
+지금까지 어려웠던 부분은 xml이랑 javascript
+
+FrontUI
+
+Spring MVC Framework : DispatcherServlet, HanddlerMapping .. 등
+
+
+MyProductController <-- DI --
+
+
+
+web.xml
+servlet.. DispatcherServlet 생성하고
+init-param 에서 bean으로!!!!!
+
+bean 설정문서로 이동
+bean 만들기
