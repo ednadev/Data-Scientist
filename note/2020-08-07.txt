@@ -1,0 +1,123 @@
+설정문서의 
+- Module 화 
+- wiring
+
+[Server Side]
+ - web.xml : WAS가 가동하면 DD파일인 web.xml이 실행되고 Servlet이 생성.... 
+     1) 설정문서와 wiring (나머지 bean들은 DI Container 안에서 작동.. ---> mvcbean.xml (bean 주문서 : bean configuration file)
+         ajax, 파일 업로드 등 설정해야 하는걸 아직 못함... annotation이 아니라면 bean이 수십개 나옴
+         bean 설정문서를 하나에 다 때려박는게 맞냐.. 즉 bean 설정문서를 모듈화 시켜야 한다.
+         mvcbean.xml 이외에 다른 xml을 만들어서 bean을 모듈화!
+         api랑 사용자 정의 bean으로 나눈다?? 안됨.. 섞일 수 없음
+         Service Layer + Persistence Layer = Business Logic Layer
+1. Presentation Layer
+ : 라이브러리로 제공된 Servlet (Dispatcher Servlet), 
+ : 나머지 라이브러리 bean 도 존재 (Handler Mapping, ViewResolver)
+ : @Controller 컴포넌트 .. 컨트롤러도 계속 생김
+ : ModelAndView는 bean이 아님 --> value object.. (VO가 bean이 아닌 걸 생각)
+2. Service Layer : 인터페이스 기반 컴포넌트(@Service) ... Service도 계속 생김
+3. Persistance Layer : 인터페이스 기반 컴포넌트(@Repository) ... Repository 계속 생기는 만큼
+4. MyBatis Framework
+ : 라이브러리 bean 3개 (Basic DataSource, SqlSessionFactoryBean, SqlSessionTemplate)
+5. DB
+
+크게 보면.. Presentation Layer + Business Logic Layer (Service, Persistance) = 2 Architecture Layer
+실제 현업에서 서버사이드는 프레젠테이션 레이어랑 비즈니스 로직 레이어로 나눠서 설계가 된다
+현업에서는 tempo가 커지면서 도메인별로 나누기도 함.. 실제 설정문서를 다뤄야 하는 게 많아질수록 
+이외에도 다른 기준으로 나눌 수도 있음.. 즉 업무 분석과 프로그래밍적인 메타 원리를 알고 있으면 효율적인 모듈화가 가능하다
+
+모듈화를 시키면 wiring 시스템 기반이 만들어져 있어야 한다.
+
+
+WAS가 돌아가면...
+GenericServlet,, Servlet + Servlet Config ---> Servlet Context : 가장 global한 attribute
+                                                               --> 낮은게 session ---> 그다음 낮은게 request
+
+ServletContext가 제일 먼저 만들어짐 ... 서버 꺼지기 전까지 존재
+Servlet이 만들어짐 ... 생성자가 호출됨 ... Servlet이 만들어지는 직후에 Servlet마다 만들어지는게 Servlet Config (init이 호출) .. 여기까지가 ready on 상태
+요청이 올때마다 request가 만들어지고.. session이 만들어진다.. WAS의 메카니즘 적인 설명
+
+web.xml 수정 ====
+context-param : servlet context가 먼저 동작하면서
+
+서블릿 생성자가 호출되면서
+
+
+webapp과 JavaResources 구분
+JavaResources : 클래스 패스 시스템
+webapp : 파일 패스 시스템
+
+classpath:를 집어넣으면 src로 바로 잡힘...
+src로 다각화 했기 때문에 config로 ...
+
+경로지정 주의! 둘다 JavaResources beans로 설정
+
+
+===================================================
+
+메인메소드는 교과서에나 있을법한..
+현장에서는 안함
+
+junit.. pom.xml 확인
+	<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>        
+	</dependencies>
+
+단위테스트 : junit 사용
+
+=================================================
+Controller
+@RequestMapping의 의미
+
+
+@RequestMapping(value="myProduct.do")
+원래는 value는.. 경로 지정
+
+사용을 하지 않는 이유는 귀찮음...
+컴포넌트화 되어지고 딱 맞춰지기 때문에
+
+원리가 이렇다라는 걸 알고 안쓴다..
+
+@RequestMapping(value="mySearch.do", method=RequestMethod.GET)
+
+사용하는건 마음대로
+
+==================================================
+
+마지막 spring은 contextPath이름이 된다..
+ 아티팩트 아이디
+
+==================================================
+
+1. DB 설계
+2. VO 작성 - ItemVO 
+3. SqlMapConfig.xml : jdbc.properties, item_mapping.xml
+4. 단위테스트 - Junit
+
+@RequestParam
+
+
+DAO는 하나여도
+서비스는 여러개 나와도 된다..
+
+마무리를 web.xml에서 조립
+
+servlet-context.xml과 root-context.xml <---- 각각
+presentation과 application bean xml 파일들을 만들어서 사용했지
+그냥 이거 써도 됨.. 단 폴더가 하나씩 들어감
+
+==========================================================================================
+viewResolver : surfix (확장자), prefix (물리적 위치)
+InternalResourceViewResolver
+BeanNameViewResolver ---> 안쓰면 안되는 경우가 있음 (JSON -> Ajax, File Download)
+
+둘다사용
+
+
+ajax에서 별도의 result 페이지가 없음
+BeanNameViewResolver를 사용해서 해결

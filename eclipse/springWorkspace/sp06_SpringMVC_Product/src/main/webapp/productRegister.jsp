@@ -15,7 +15,7 @@
 		<input type="submit" value="상품등록">
 	</form>
 	++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	<form action="mySearch.do" method="post">
+	<form action="mySearch.do" method="get">
 		상품명 검색 : <input type="text" name="word"><br><br>
 		<input type="submit" value="상품찾기">
 	</form>

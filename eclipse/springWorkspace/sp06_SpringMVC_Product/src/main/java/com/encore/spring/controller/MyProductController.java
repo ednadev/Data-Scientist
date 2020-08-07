@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.encore.spring.domain.MyProduct;
@@ -16,7 +17,7 @@ public class MyProductController {
 	@Autowired
 	private MyProductService myProductService;
 	
-	@RequestMapping("myProduct.do")
+	@RequestMapping(value="myProduct.do", method=RequestMethod.POST)
 	public ModelAndView insert(MyProduct pvo) throws Exception { 
 		
 		System.out.println("폼으로 받은 데이타 " + pvo.getId()); //0
