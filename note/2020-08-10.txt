@@ -1,0 +1,69 @@
+오늘 : Spring 마무리 : ViewResolver - File Download, Ajax
+내일 : Spring Test
+수요일 : Restful - Maven 기반
+금요일까지.. String Boot + Restful API
+
+다음주 : Vue.js, 프로젝트 구상 - 준비작업 (팀, 주제 등)
+8/24 : 프로젝트 시작
+
+================================================================================
+
+ViewResolver
+- InternalResourceViewResolver : 사용하지 못하는 이유가 여러개 경로를 지정하지 못해서.. BeanNameViewResolver .. p
+<property name="prefix" value="WEB-INF/result/" />
+<property name="suffix" value=".jsp" />
+<property name="order" value="1" />
+result 대신 views를 한 이유가 maven 기반으로 만들면 기본 셋팅으로 되어 있음
+
+"info" : 앞 - 물리적 위치 제거, 뒤 - 확장자 제거
+
+webapp
+ - WEB-INF
+    - member
+      - result
+    - board
+
+
+InternalResourceViewResolver : 사용하지 못하는 이유가 여러개 경로를 지정하지 못해서.. 
+- BeanNameViewResolver : JstlView - 여기에다가 결과 페이지의 저장 위치 정보
+<property name = "order" value="0" />
+1. 경로 다각화
+(중요) 2. File Download / Ajax
+
+업로드가 된다는 건 해당 파일의 경로부터 사이즈 등의 정보가 들어가는데
+해당 정보를 multipart file이 가지고 있다.
+
+파일 업로드를 누르면 multipart file 객체 정보가 전송되는데,, 사용자명도 같이 전송되므로
+해당 저장을 보내는 VO를 만들어야 한다.
+
+//getRealPath()..C:\edna\apache-tomcat-8.5.55\webapps\sp09_SpringMVC_FileUpload\upload\~~.png
+
+이클립스를 통해 서버에 배포
+업로드 폴더를 안만든다는 애기는 서버에 배포를 하지 않겠다는 것?
+
+
+preferences - workspace - 
+refresh using native hooks or polling 체크
+
+
+BeanNameViewResolver
+1. 결과 페이지의 디렉터리 다각화 --> JSTLView
+2. FileDownload / Ajax
+
+maven repository에서
+https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl
+
+
+<필수적으로 할일>
+pom.xml 주입
+web.xml : *.do랑 한글처리 추가
+codehaus
+
+C:\edna\util\Spring\제공\member_register
+결과 페이지 : allView.jsp, find_fail.jsp, find_ok.jsp, idcheck.jsp, login_result.jsp, logout.jsp, update_result.jsp
+
+forwarding 아님.. redirect 사용하기
+
+register.jsp --> jquery 비동기 처리 하기
+jquery 키업 이벤트로 
+4~8자만..
