@@ -1,0 +1,9 @@
+오늘
+- 1시까지 시험
+- 2시부터 풀이
+
+내일부터.. Restful --> Spring Boot
+
+
+트랜잭션 처리는 INSERT, DELETE, UPDATE에서 한다.
+--> Service에서 처리

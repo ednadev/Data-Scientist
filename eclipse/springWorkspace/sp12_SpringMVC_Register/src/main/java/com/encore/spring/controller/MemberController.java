@@ -73,4 +73,13 @@ public class MemberController {
 		}
 		return "update_result";
 	}
+	
+	@RequestMapping("idExist.do")
+	public String idExist(Model model, String id) {
+		String idExist = memberService.idExist(id);
+		boolean check = false;
+		if(idExist!=null) check = true;
+		model.addAttribute("check", check);
+		return "JsonView";
+	}
 }

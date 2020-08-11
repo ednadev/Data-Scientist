@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Phone">
+	<resultMap type="company" id="company">
+		<result property="vcode" column="vcode"/>
+		<result property="vendor" column="vendor"/>
+	</resultMap>
+	<resultMap type="phone" id="phone">
+		<result property="num" column="num"/>
+		<result property="model" column="model"/>
+		<result property="price" column="price"/>
+		<result property="vcode" column="vcode"/>
+		<collection property="company" resultMap="company"/>
+	</resultMap>
+	<insert id="insert" parameterType="phone">
+		INSERT INTO phones VALUES(#{num}, #{model}, #{price}, #{vcode})
+	</insert>
+	<delete id="delete" parameterType="java.util.List">
+		DELETE FROM phones
+		<where>
+			<foreach collection="list" item="item" separator="OR">
+				num=#{item}
+			</foreach>
+		</where>
+	</delete>
+	<select id="select" parameterType="phone" resultMap="phone">
+		SELECT p.num, p.model, p.price, c.vcode, c.vendor FROM phones p, company c 
+		WHERE p.vcode = c.vcode AND p.num = #{num}
+	</select>
+	<select id="selectAll" resultMap="phone">
+		SELECT p.num, p.model, p.price, c.vcode, c.vendor FROM phones p, company c WHERE p.vcode = c.vcode
+	</select>
+	<select id="selectUser" parameterType="userInfo" resultType="userInfo">
+		SELECT * FROM userinfo WHERE id = #{id} AND pw = #{pw}
+	</select>
+</mapper>
