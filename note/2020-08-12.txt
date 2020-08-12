@@ -1,0 +1,90 @@
+Spring MVC
+Spring Restful API
+
+--> 어떻게 다른지를 파악하면 프론트엔드..
+
+RequestMapping을 사용해도 되지만
+GetMapping, PostMapping을 사용하는 게 좋다.
+
+[ FrontUI ] - [ Presentation Layer + Business Logic Layer + MyBatis Framework ] <-- DAO --> DB
+
+Bean 설정문서 모듈화할 때.. Layer 기반으로 모듈화
+Business Logic Layer - ( Data ) - MyBatisFramework : Data가 왔다갔다 한다.
+Presentation : Controller가 하는 역할 (ModelAndView --> String과 Model로 세련되게 만듬)
+   ---> Data를 받아서 화면 만들어서 넘기는 곳 Front로! 마지막 결론이 화면! Presentation에서 결과 페이지가 만들어진다.
+WEB-INF : 동적인 문서 - jsp
+
+:: 여기까지가 Spring MVC의 결론 : Presentation Layer와 Business Logic Layer를 나눈 이유이기도 함
+
+
+FrontUI는 Device가 다양 --> web, tablet, mobile (iphone, galaxy), ...
+
+
+Spring Restful API는 Presentation Layer까지 Data로 묶임.. 
+Presentation에서 @RestController : 데이터가 리턴 타입
+
+서버와 프론트가 완벽하게 분리
+
+프론트를 Vue로 바꿀 수 있는.. (React 등의 기술).. 통신은 비동기 처리
+마지막으로 SpringBoot를 얹어서 감
+
+Maven [Spring MVC, jsp] 포트번호 : 8888
+(vue).. 
+SpringBoot [Restful] 포트번호 : 7777
+
+
+== 일정
+데이터 분석이나 머신러닝을 웹이랑 연결하는 부분이 '중요'
+이번주부터 다음주 초까지 : 주제 선정(딥러닝이나 머신러닝과 연결 --> 웹하고 다르게 가야함) + 팀 선정
+9/18 : 프로젝트 발표
+9/21 ~ 9/25 : 취업 준비
+
+
+http://tomcat.apache.org/tomcat-7.0-doc/servletapi/index.html
+HttpServlet --> doGet, doPost..
+doDelete, doGet, doPost, doPut --> Data가 결론
+delete -> doDelete
+insert -> doPost
+update -> doPut
+select -> doGet
+
+결국 제일 중요한 건 insert와 select
+
+Restful 함수 4가지!
+
+Spring 4.3.1 버전으로 변경
+
+http://localhost:8888/rest/greet로 요청
+객체를 넘겨준다.. json으로 변환시켜서 던져준다
+
+https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+<!-- jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.8.5</version>
+		</dependency>
+얘를 pom에 무조건 넣어줘야한다.
+
+
+제영 - 데이터분석, 알고리즘 / 사회, 정치.. 약한 분야는 프론트.. 주제는 왠만해서 다 좋음
+채은 - 공공데이터, 커머스... 약한 부분은 프론트, 관심분야는 에너지, 환경 쪽
+          관심 분야 : 에너지/환경, 공공정책, 커머스
+         약점 : 프론트
+          (강점..?보다는 )집중하고 싶은 역량 : 데이터분석/머신러닝
+치종 - 데이터베이스 / 생소한 건 스프링 기반.. Ajax 생소, 머신러닝 데이터분석, 딥러닝 관심 있음.. 데이터 확보를 어떻게 할지가 문제
+         도서 출판 업계 쪽.. 농업 정책 관련된 것
+연희 - 데이터 베이스, 딥러닝 부분은 아니고 백엔드 역할 , 관심 분야는 문화쪽에 관심 있고 문화나 공연에 관심 있고 교육에도 적합.. 프론트엔드가 약함
+의근 - 머신러닝할때가 재밌었고,, 백단을 건드리는 건 무리가 있지 않나.. 관심 분야는 데이터 확보에 따라
+         행동 분야 등을.... 스포츠 산업 분야도 관심 분야
+찬영 - 실제적으로 서비스 ,, 비즈니스 모델을 할 수 있는 분야.. 관심 분야는 크게 상관 없음, 아이템만 재밌으면 됨.. 백엔드를 하다보니까.. 
+         이번 프로젝트는 프론트엔드가 약하다보니 그쪽 역량을 키우고 싶다..
+재은 - 분야는 문화나 관광, 스포츠 잘하는 건 아니고 머신, 딥 보다는 자바가 편함.. 프론트랑 백 위주로 하는게 좀 더 편함
+용훈 - 머신러닝 딥러닝 쪽 관심, 파이토치.. 상품을 찾는게 아님... 자동적으로 찾는 토이프로젝트에서 찾는게 아니라..
+하경 - 머신러닝이랑 딥러닝 보다는 스프링 기반 웹 서비스를 하나 만들고 싶고, 이쪽으로 집중하고 싶음.. 잘하는 건 아니지만 확실하게 알고 싶어서 .. 분야는 딱히 가리지 않음
+재헌 - 뭘 더 잘한다고는 할 수 없지만 충분히 배운걸 열심히 할 수 있는.. 민폐 끼치지 않는 정도.. 빅데이터나 딥러닝, 머신러닝 쪽으로 .. 웹 쪽에 더 관심이 많음
+         도서나 문화 콘텐츠 쪽 스포츠 쪽으로..., 할려고 했던 맛집도 괜찮음
+민호 - 프로그램 전반에 관심 있고,, 뷰티쪽만 아니면 됨0
+
+치종 : 
+재은(프론트, 백엔드)  : 
