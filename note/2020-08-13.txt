@@ -1,0 +1,77 @@
+Restful 마무리 + Spring Boot 시작
+내일 : Spring Boot + Restful API 연결
+다음주 : Vue
+
+416 또는 415 에러가 뜸
+간혹 가다가 404가 뜨기도 함
+
+500은 뜨지 않음.. 500은 서버 로직의 문제
+
+416은 제이슨 라이브러리를 넣지 않았다는 뜻.. 간혹 404도 뜸
+
+============================================
+
+서비스에서 원래는 select 구문만 있는게 좋다. 그중 정말 빼야하는 건 delete
+그런데 전부 다 넣는다...? 이유는.. 어떤 제품을 삭제하려고 하면 바로 DAO로 가야 하면
+Controller가 DAO까지 헤징해야 함... 거기서 DAO꺼를 또 쓰던가
+아니면 전부 다 안빼고 service에 다 넣고 하던가
+
+소스 코드는 인터페이스로 소통하고, 설정문서는 구상 객체로 연결된다..
+재사용성을 높이기 위해서 인터페이스로 커플링을 낮췄고,
+컨테이너가 만들기 때문에 설정문서에서는 실체 클래스로 소통한다.
+
+restful은 프론트가 없음...
+돌리려면 어떻게 해야 하는가.
+설정문서 맞추기!!
+
+
+restful.. ajax로 마무리
+
+=============================================
+
+Spring Boot
+
+작업 환경에 대한..
+부트로 들어가면 레퍼지토리 검색도 안하고, 전부 다 들어있음
+설정 방법이 굉장히 많음
+
+배운 ROOT를 따라갔을때 가장 간단한 방법으로
+
+현업에서는 maven 기반
+스타트업에서는 스프링 부트 사용
+
+Spring Boot DevTools : 코드를 수정할때마다 컴파일... 서버를 껐다가 시작할 필요가 없어짐 
+MyBatis Framework
+MySQL Driver
+Spring Data JDBC
+Spring Web
+
+마이바티스 등 다 처음부터 다 넣으면 에러가 뜨니 
+처음부터 모든 걸 다 넣고 시작하진 말기
+
+war
+web application은 static한 문서와 dynamic한 문서가 함께 포함되어 있는 것
+jar는 web쪽이 뜨지 않음
+
+[boot] [devtools] 가 체크 되어 있음
+
+webapp 아래에 아무것도 없다는 것은
+jsp를 쓰지 않겠다는 것.. restfulAPI 위주의 프로젝트!
+
+Maven 기반.. jsp
+Boot 기반 .. RestController.. 
+부트 기반 포트번호는 7777
+
+스프링부트는 jsp를 지원하지 않겠다는 것은 jsp 라이브러리를 추가
+tomcat이 내장되어 있다
+
+
+application.properties에서 모든 설정문서 작업
+
+Sp17Boot01Application -- 부트 서버 
+
+http://127.0.0.1:7777/boot01.html
+스프링부트는 context path를 인식하지 않음
+
+server.servlet.context-path=/api
+http://127.0.0.1:7777/api/boot01.html

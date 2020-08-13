@@ -144,3 +144,11 @@ eclipse/springWorkspace/sp13_SpringTest/src/main/webapp/WEB-INF/spring/root-cont
 eclipse/springWorkspace/sp14_RestfulAPI/src/main/webapp/WEB-INF/spring/root-context.xml
 eclipse/springWorkspace/sp15_RestfulAPI_SpringTest/src/main/webapp/images
 eclipse/springWorkspace/sp15_RestfulAPI_SpringTest/src/main/webapp/WEB-INF/spring/root-context.xml
+eclipse/springWorkspace/sp16_RestfulAPI_Book/src/main/webapp/WEB-INF/spring/root-context.xml
+eclipse/springWorkspace/sp17_Boot01/.gitignore
+eclipse/springWorkspace/sp17_Boot01/mvnw
+eclipse/springWorkspace/sp17_Boot01/mvnw.cmd
+eclipse/springWorkspace/sp17_Boot01/pom.xml
+eclipse/springWorkspace/sp17_Boot01/.mvn
+eclipse/springWorkspace/sp17_Boot01/src/main/java/com/encore/boot/ServletInitializer.java
+eclipse/springWorkspace/sp17_Boot01/src/test/java/com/encore/boot/Sp17Boot01ApplicationTests.java
