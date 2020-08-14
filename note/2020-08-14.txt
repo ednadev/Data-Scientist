@@ -1,0 +1,40 @@
+부트 마무리
+에러 났을 시,,
+라이브러리 추가할 때마다 메이븐 업데이트
+이클립스 재부팅, PC 재부팅
+
+부트는 STS 재부팅해도 잘 먹음
+부트 서버가 순조롭게 올라오는 걸 확인하면 편하게 작업 가능
+
+=============================================
+
+SpringBoot
+1. Tomcat 내장...
+2. Context-Path가 없다.
+3. WEB-INF가 없다...jsp 지원 안 한다.
+   ---> jsp 라이브러리 추가해야 한다. (사용하려면)
+
+4. name 을 sp100이라고 지정..
+   sp100Application 클래스가 생성 --> 이걸 실행 --> boot 서버 가동
+
+5. poem에 반드시 추가해야하는 것 중에서 DevTool 이거!!
+
+terminate/disconnect all로 해결
+
+실제로 스프링부트에서는 jsp보다 Thymeleaf 사용
+
+
+프론트랑 Controller 연결이 Ajax
+Cross Origin 했니? 허용을 하지 않음...
+
+Vue.. Axio (Ajax ...) 
+rest controller에서 cross origin을 해야 vue랑 연결이 된다.
+
+RestfulAPI 컨벤션이 같은 이유.. 디자이너와 개발자의 소통
+RestfulAPI를 개발하는 개발자는 스웨거를 만들어야 한다.
+
+잭슨 추가시
+구글에서 제공하는 라이브러리를 사용하기 때문에 충돌나면서 에러...?
+원래 나지 않음
+
+http://127.0.0.1:7777/swagger-ui.html

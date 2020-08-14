@@ -152,3 +152,14 @@ eclipse/springWorkspace/sp17_Boot01/pom.xml
 eclipse/springWorkspace/sp17_Boot01/.mvn
 eclipse/springWorkspace/sp17_Boot01/src/main/java/com/encore/boot/ServletInitializer.java
 eclipse/springWorkspace/sp17_Boot01/src/test/java/com/encore/boot/Sp17Boot01ApplicationTests.java
+eclipse/springWorkspace/sp18_Boot02/.gitignore
+mvnw
+mvnw.cmd
+eclipse/springWorkspace/sp18_Boot02/.mvn
+eclipse/springWorkspace/sp18_Boot02/src/main/java/com/encore/boot/ServletInitializer.java
+eclipse/springWorkspace/sp18_Boot02/src/test/java/com/encore/boot/Sp18Boot02ApplicationTests.java
+eclipse/springWorkspace/sp19_Emp/.gitignore
+eclipse/springWorkspace/sp19_Emp/pom.xml
+eclipse/springWorkspace/sp19_Emp/.mvn
+ServletInitializer.java
+eclipse/springWorkspace/sp19_Emp/src/test/java/com/encore/emp/Sp19EmpApplicationTests.java
