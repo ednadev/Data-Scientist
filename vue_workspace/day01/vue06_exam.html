@@ -1,0 +1,57 @@
+<!-- 
+    ++++++++++++ 해보기 +++++++++++++++++
+    좋아하는 음식 테이블로 출력하기(이미지 추가해서)
+
+    음식명 : Cake
+    이미지 : Cake이미지
+    가격: 23000원
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        $(document).ready(function() {
+            var model = {
+                food: 'Cake',
+                picture: 'cake.jpg',
+                price: '23000'
+            }
+
+            var app = new Vue({
+                el: '#app',
+                data: model
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <table border="2">
+            <caption>내가 좋아하는 음식</caption>
+            <thead>
+                <tr>
+                    <th>음식명</th>
+                    <th>이미지</th>
+                    <th>가 격</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{food}}</td>
+                    <td><img :src="picture" width="60"></td>
+                    <td>{{price}}원</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+    "auto-rename-tag.activationOnLanguage": [
+        "html",
+	    "vue",
+        "xml",
+        "php",
+        "javascript"
+    ],
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "liveServer.settings.ChromeDebuggingAttachment": true,
+    "liveServer.settings.CustomBrowser": "chrome",
+    "workbench.editorAssociations": [
+    
+    ]
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        $(document).ready(function() {
+            $('h2').text('시작');
+
+            var model = {
+                message: 'Vue 시작입니다.'
+            }
+
+            var app = new Vue({
+                el: '#sample',
+                data: model
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 1. 화면구성 :: View -->
+    <div id="sample">
+        <h2 align="center">START!!</h2>
+        <h3>{{message}}</h3>
+    </div>
+</body>
+
+</html>

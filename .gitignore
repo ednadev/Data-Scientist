@@ -163,3 +163,5 @@ eclipse/springWorkspace/sp19_Emp/pom.xml
 eclipse/springWorkspace/sp19_Emp/.mvn
 ServletInitializer.java
 eclipse/springWorkspace/sp19_Emp/src/test/java/com/encore/emp/Sp19EmpApplicationTests.java
+
+util/Vue/cake.jpg
