@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <h2>v-for와 v-if 함께 사용하기</h2>
+    <div id="app">
+        <label>encore 특정지역 개설된 반수 : </label>
+        <!-- number를 붙이면 숫자타입으로 인식...true -->
+        <input type="number" v-model.number="encore.count">
+        <!-- <input type="number" v-model.number="count"> -->
+
+        <ul>
+            <li v-for="(e, index) in encore" v-if="e.count === encore.count">
+                지역 : {{e.name}}, {{e.count}}개반
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                // count:0,
+                encore: [
+                    {
+                        name: '영등포구',
+                        count: 3
+                    },
+                    {
+                        name: '남부지구',
+                        count: 5
+                    },
+                    {
+                        name: '서초지구',
+                        count: 7
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
+<!--
+    JavaScript에서는 다른언어와 달리 ==연산자 말고도 === 연산자가 존재한다.
+    ==는 타입상관없이 값만 비교한다.
+    반면에 ===는 값은 물론 타입까지 비교하는 연산자이다.
+
+    0=='' //true
+    0=='0' //true
+    1 == true //true
+
+-->

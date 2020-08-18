@@ -1,0 +1,66 @@
+vue
+<div>
+  데이타 출력
+</div>
+<script>
+  var a = {a : ""} : 데이타
+
+  New Vue({
+    el : 어디에 뿌릴지, 
+    data : 데이타 바인딩
+  })
+</script>
+
+데이타를 화면에 출력하는 것을 데이타 바인딩
+
+** 문자 보강법
+{{}}, 
+디렉티브
+<div v-text="a"></div>
+<div v-html="a"></div>
+
+** 속성 바인딩
+<div v-bind:src=""></div>
+<div :src=""></div>
+
+** 양방향 : v-model
+<input type="text"> --> 전송 버튼 : 서버 사이드로 날라감
+서버사이드는 restful.. 즉, restful API를 넣으면 됨
+
+@RestController
+  @PostMapping --> Response Entity
+
+Response Entity는 다시 Vue로 전달.. 해당 View에서 뿌려짐
+
+new Vue({
+  el,
+  data : 이곳으로 반환 (서버 데이타 값)
+})
+
+폼에 있는 값을 바로 new Vue를 통해 바로 뿌리는 것이 v-model
+화면에서 모델로 내리꽂으므로 양방향 가능
+
+** v-if, v-show
+<v-if="false"> ==> <!-- -->
+<v-show="false"> ==> display: none
+
+** v-for
+<v-for="n in nums">
+
+======================================================= 오늘 수업 시작
+
+price, salary 등 소수점 어디까지 지정할지.. 숫자 데이터를 받았을 경우 필터를 사용한다.
+computed는 캐싱 기능이 있어서 거기서 뽑아오는 게 있다.
+
+computed.. 내가 체크한게 0이 아닐 경우에만 출력.. 
+length가 0보다 큰 것 등..
+
+morezero
+..함수의 리턴 타입은 0보다 클때만 true..
+v-if와 computed 사용
+
+v-model에서 model로 가는게 "역방향"
+model 데이타가 바인딩 되는게 "정방향"
+즉, 양방향
+
+ 
