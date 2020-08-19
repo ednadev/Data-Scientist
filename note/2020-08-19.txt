@@ -1,0 +1,61 @@
+HTML
+Vue 기술 --> Evan You (중국인)
+
+Angular.. 아키텍처 복잡 - 접근성이 떨어짐
+ --> 그래서 나온게 "React"
+ --> React보다 훨씬 더 잘만든게 "Vue" // TypeScript 기반
+ --> TypeScript (ES6 문법 지원) : 자바스크립트가 2015년부터 추가된 기능이 있음
+
+VS Code 플러그인.. 설치할수록 무거워짐
+LiveServer로 서버를 깔지 않아도 소켓통신으로 통함
+깃허브 작업하기도 편함
+TypeScript를 완벽하게 지원
+
+1. let, const
+var 대신 사용
+let은 로컬변수
+const는 상수값.. consistance를 의미?
+
+내일 들어가려고 하는게 vue ajax.. Axio
+ES6를 반드시 사용해야함
+
+2. 화살표 함수
+
+============================================================
+
+- HTML
+- Vue 기술 
+
+3가지로 나뉨
+화면 : <div></div>
+<script> : Model - 데이타
+              Vue Model - new Vue() : Model 데이타 사용 (2)
+
+html 파일을 실행시키면..
+화면 부분에 해당하는 HTML Tag들이 Memory에 올라감 --> DOM 방식 (1)
+
+var app = new Vue()
+el : '#app',
+data : model,
+methods : ...
+
+(3) data를 el에 마운티드, 렌더링, 바인딩, 뿌려짐.. 다 같은말
+뿌려진 데이타는 수정 가능 (Mounting이 일어난 다음에 Update가 일어난다)
+
+Vue 라이프 사이클 --> Axio
+
+
+==============================================================
+
+폼                          -- 요청 --> @RestController
+id                                          @GetMapping("/emp/{id}")
+Vue Model이 받음    <-- 응답 --
+                                 EmpDTO.. VO.. DO
+"양방향"
+
+DTO는 서버사이드와 클라이언트를 왔다갔다한다고 해서 명칭
+데이타만 받아오는 걸 비동기.. axio로 연결
+
+JSON 데이타로 비동기 했다고 생각하고..
+내일 axio로 변경만 하면 됨
+
