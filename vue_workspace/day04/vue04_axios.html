@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        #second > h2 {
+            margin: auto;
+            text-align: center;
+            color: blue;
+        }
+        #tid {
+            border: 1px solid blue;
+            margin: auto;
+            text-align: center;
+        }
+        #tid td {
+            border: 1px solid green;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+</head>
+<body>
+    <div id="second">
+        <h2>ENCORE SAFE FOOD</h2>
+    </div>
+    <div id="app">
+        <section v-if="errored">
+            <p>Error In Axios Transport</p>
+        </section>
+        <section v-else>
+            <div v-if="loading">Loading.....</div>
+            <table id="tid">
+                <thead>
+                    <tr style="border: 1px solid green">
+                        <th>나라</th>
+                        <th>깃발</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="flag in info" style="border:1px solid green">
+                        <td>{{flag.korname}}</td>
+                        <td><img :src="flag.flag"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data() {
+                return {
+                    info: null,
+                    errored: false,
+                    loading: true
+                }
+            },
+            mounted() {
+                axios
+                    .get('./flags.json')
+                    .then(response => (this.info = response.data.nationalflags))
+                    .catch(error => {
+                        console.log(error);
+                        this.errored = true;
+                    })
+                    .finally(() => this.loading=false)
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+workshop 같이 정리..
+axio 들어감.. 들어가기전에 화살표 함수 등 
+cross origin이 뭔지 정확하게 이해
+마지막으로 어떤 아키텍처로 구성될지 파악
+axio 핵심은 오늘! 마무리는 내일
+
+===================================
+
+오류날시..
+'use strict';
+추가해서 사용..
+
+-- vue01_arraow.html
+
+
+vue 라이프사이클 구글 검색
+https://kr.vuejs.org/v2/guide/instance.html
+
+https://kr.vuejs.org/v2/guide/instance.html#%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4-%ED%9B%85
+
+1. vue가 생성되고 created가 호출된다
+vue의 속성들이 활성화.. el, methods, data 등
+
+2. 활성화된 속성들이 렌더링 -- mounted
+DOM 구조의 적용되는 것을 mounted라고 함
+활성화된 vue의 속성들이 실질적으로 dom 구조에 렌더링
+created 안에서 이 작업을 하면 에러
+
+3. 변경을 할때마다 beforeUpdate, updated가 계속해서 반복적으로 일어남
+
+4. destroyed
+
+중요한 함수 2개 뽑으라고 꼽자면 created, mounted
+1개 mounted
+3개 created, mounted, updated
+쓸모 없는게 destroyed
+
+======================================================
+
+beforeMount에서도 가능하지만.. 안정적으로 사용하기 위해서 mounted에서 렌더링
+
+
+
+axios cdn 구글 검색
+
+ 
+http://127.0.0.1:7777/api/findAllEmployees
+http://127.0.0.1:5500/day04/vue05_axios_emps.html
+
+
+Access to XMLHttpRequest at 'http://127.0.0.1:7777/api/findAllEmployees' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
