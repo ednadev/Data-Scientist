@@ -1,0 +1,17 @@
+Axio,, 오늘 마무리
+LocalStorage
+
+CLI 구조 - 월요일
+노드 서버는 노드를 사용한다기 보다 npm 패키지를 사용하려고 쓰는 것
+
+유럽에서는 C#이 대세
+
+코드를 크게 볼 수 있도록 .. 하루 이틀 정도 하고 마무리!
+
+
+vue.. localstorage 잘 쓰면 좋음
+
+localstorage는 created!
+mounted랑 상관없음..
+vue 객체가 만들어지자마자 해야하므로 created
+
