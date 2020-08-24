@@ -1,0 +1,249 @@
+오늘 CLI를 끝으로 수업 끝!
+
+최종적으로.. 서버사이드
+@RestController
+
+@Post
+@Delete
+@Put
+---> Postman
+
+Client에 뿌리는 건 Sweager..
+
+Maven 구조.. pom.xml
+라이브러리 하나당 dependency 하나가 매핑
+
+버전 맞춰서... dependency ..
+maven repository가서 했다면 시행착오가 많음
+
+그래서 나온게 boot
+boot는 거의다 돌아감
+
+maven repository를 너무 자동화 해놓아서
+maven을 공부한다 생각하고 접근하는게 좋다
+
+..
+
+프론트단..
+bootstrap, jquery, vue
+
+라이브러리 cdn으로 하나라도 연결하지 않는 기술이 없음
+내부적으로 만들어놓은 프레임워크 라이브러리가 있음
+서버사이드가 만들어져있는걸 재사용하는 것..
+
+모든 기술을 cdn으로 .. 
+결국 프론트도 프레임워크 기반
+
+직접 넣어서 관리하는게 아닌.. dependency로..
+실제 프론트 부분도 cdn도 없애고
+프레임워크를 관리해주는 기술이 필요
+
+이걸 관리해주는게 CLI..  WebPack 구조
+
+cli를 하려면 npm을 설치
+node package manager로 관리가 됨
+
+pom.xml이 npm과 똑같음
+npm은 Maven과 똑같음.. 이걸 쓰려면 Node 서버가 필요
+
+CLI는 빠르게 프로젝트를 구성하고 프로토 타이핑으로 개발하고 싶을 때 사용하는 유용한 개발도구
+
+Maven pom.xml 같은게 CLI에도 있음
+
+엔터프라이즈급으로 개발하려면
+서버사이드는 메이븐 기반
+클라이언트사이드는 CLI  기반
+으로 가야함
+
+LTS : Long Term Support..?
+LTS 알면 좋음
+
+Tomcat도 8.5를 쓰는 이유가 8.5가 LTS
+
+C:\Program Files\nodejs <--- 노드 설치 위치
+
+npm : node package manager
+npm을 이용해서 프로젝트를 자동으로 구성
+
+... 이게 CLI
+
+package.json 이라는 파일이 만들어짐 --- pom.xml 과 같은 거
+ 이안에 dependency 같은게 들어있는 거
+
+프로젝트마다 설치하는게 귀찮으므로 글로벌로 설치하기
+
+cmd에서
+글로벌이기 때문에 아무데서나 설치 가능
+
+만약 설치된 상태에서 npm install -g npm을 또하면
+업데이트
+
+
+node --version
+node -v
+
+CLI는 프론트단에서 프로젝트를 어떻게 잡을지..
+라이브러리 관리를 어떻게 해야할지도 잡혀있다
+
+mkdir vueproject
+dir
+cd ..
+cd vueproject
+
+Vue CLI v4.5.4 버전...
+
+Default ([Vue 2] babel, eslint)
+CLI에서 babel하고 eslint를 알아야 함
+
+babel은 es6 문법을 하위 문법으로 변환시켜줌
+eslint : 어떤 문법의 에러가 발생하면 경고하는 거
+
+warning 또는 error가 뜸
+warning은 무시하면 됨.. 그냥 이렇게 하면 좋지 않을까 kind 한 것 뿐
+
+Manually select features
+
+space로 체크하고
+방향키로 조절
+
+Router, Vuex 설치
+
+선택 완료되면 Enter
+
+
+2.x 선택
+
+ESLint + Prettier 선택
+
+Lint and fix on commit 체크하고 엔터
+
+In package.json 선택하고 엔터
+
+마지막 마무리는 y랑 엔터
+
+
+
+pdf에서는 default로 설치했을 때를 해놓은 건데
+라이브러리를 따로 설치해야 함..?
+
+알고리즘이나 그래프 써서 출력하라는 것..
+d3는 동적인 라이브러리 쓰려면 연결
+
+hellovues 프로젝트가 cli 구조로 만들어짐
+
+cd hellovues
+dir
+
+
+public.. 공적인 파일.. html
+src.. 프론트단이 넣는 소스
+
+
+CLI Webpack 구조.. package.json
+
+"scripts" 안에
+serve, build, lint
+
+serve는 가동, build는 배포
+
+dependencies 안에
+core-js, vue, vue-router, vuex.. 하나 하나가 dependency
+
+core-js와 vue가 default
+
+browserslist는 
+전 세계.. 사용하는 브라우저가 엄청 많음
+그 중 1%를 제외하고 모두 통용
+
+크로스 브라우징이 된다는 건가?
+
+package dependencies에 해당하는  라이브러리가 node_modules에 있음
+
+node_modules 안에 라이브러리가 통으로 들어있음
+node_modeles를 빼고 보내야함
+
+cli 기반으로 헬로우 vues를 만듬
+
+제일 중요한게 3가지
+1. package.json
+2. public
+
+서버 가동.. npm run serve
+ ---> package.json에서 scripts --> serve 가동! vue-cli-service serve 가동!
+
+http://localhost:8080/
+
+
+* SPA
+Single Page Application
+html은 하나! 모두 컴포넌트로 만듬
+
+public/index.html
+src/main.js
+
+main.js 가 가장 먼저 동작
+
+h 함수에 의해서 App가 호출
+
+그러고 나서 이 영역에 마운티드
+
+npm install axios --save
+package.json - dependencies에 추가가 됨 : axios..!
+
+npm install core-js
+
+
+... core-js를 다시 npm install 한 이유
+cli가 4로 가는 중...
+3 버전과 core에서 충돌이 남
+
+cli가 다운그레이드 방법이 없음.. 그냥 4로 만들어야 함
+core 버전을 다시 인스톨한이유.. 버전 맞춤
+
+
+---
+파이썬 - VS code를 사용
+대학원 박사들이 인공지능을 끌고 가고 있는데..
+
+public에는 index.html 파일 하나만
+
+package-lock.json은 변질되지 않도록 하는 거...?
+
+
+http-common.js에서 localhost 7777 요청되어 있음
+
+컴포넌트 관리는 라우터
+
+
+
+CustomersList.vue에서
+deleteEmployee..
+response.data==true가 되지 않음 
+퇴사 처리는 되고 있음
+
+
+DetailCustomer.vue, SearchCustomers.vue, SearchCustomerById.vue 
+src/components에 추가
+
+이클립스 기반으로 CLI 만들지 못함
+해결방법
+
+철저하게 서버 위주 : Maven 8888
+이 안에서 vue 사용
+
+vue를 vscode + cli 구조로 개발..
+이를 이클립스에 그대로 가져다가 쓰고 싶다
+이때 필요한게 build
+
+build 된 걸 심으면 됨
+
+vue에서 철저하게 axios로 연결
+cross origin으로 연결
+
+서버 나오는 거 : ctrl + c 해서 빠져나옴
+
+npm run build
+
+dist.. 폴더
+
+
